@@ -20,10 +20,22 @@ class ListPresenter: ListPresentationLogic {
     func presentItems(_ response: List.Response) {
         let urgentItems = response.items.filter({ $0.isUrgent })
             .sorted(by: { $0.creationDate > $1.creationDate })
-            .map({ List.ViewItem(image: $0.imagesURL.small, title: $0.title, category: "test", price: $0.price, isUrgent: $0.isUrgent)})
+            .map({ item in
+                List.ViewItem(image: item.imagesURL.small,
+                              title: item.title,
+                              category: response.categorys.first(where: { $0.identifier == item.categoryId })?.name ?? "",
+                              price: item.price,
+                              isUrgent: item.isUrgent)
+            })
         let regularItems = response.items.filter({ !$0.isUrgent })
             .sorted(by: { $0.creationDate > $1.creationDate })
-            .map({ List.ViewItem(image: $0.imagesURL.small, title: $0.title, category: "test", price: $0.price, isUrgent: $0.isUrgent)})
+            .map({ item in
+                List.ViewItem(image: item.imagesURL.small,
+                              title: item.title,
+                              category: response.categorys.first(where: { $0.identifier == item.categoryId })?.name ?? "",
+                              price: item.price,
+                              isUrgent: item.isUrgent)
+            })
 
         let orderedList = urgentItems + regularItems
 

@@ -9,6 +9,7 @@
 import Foundation
 
 class ListWorker {
+    
     func fetchListItems(_ request: List.Request, completionHandler: @escaping ([List.Item]?, Error?) -> Void) {
         guard let url = URL(string: request.url) else {
             completionHandler(nil, URLError(.badURL))
@@ -30,6 +31,20 @@ class ListWorker {
     }
 
     func fetchCategory(_ request: List.Request, completionHandler: @escaping ([List.Category]?, Error?) -> Void) {
-        
+        guard let url = URL(string: request.url) else {
+            completionHandler(nil, URLError(.badURL))
+            return
+        }
+
+        let request = URLRequest(url: url)
+
+        URLSession.perform(request, decode: [List.Category].self) { result in
+            switch result {
+            case .failure(let error):
+                completionHandler(nil, error)
+            case .success(let items):
+                completionHandler(items, nil)
+            }
+        }
     }
 }

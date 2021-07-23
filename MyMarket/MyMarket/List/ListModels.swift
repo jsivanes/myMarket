@@ -17,6 +17,7 @@ enum List {
 
     struct Response {
         let items: [Item]
+        let categorys: [Category]
     }
 
     struct ViewModel {
@@ -57,6 +58,12 @@ enum List {
     }
 
     struct Category: Decodable {
+        enum CodingKeys: String, CodingKey {
+            case identifier = "id"
+            case name
+        }
         
+        let identifier: Int
+        let name: String
     }
 }

@@ -35,6 +35,7 @@ class ListPresenterSpy: ListPresentationLogic {
 
     func presentItems(_ response: List.Response) {
         XCTAssertFalse(response.items.isEmpty)
+        XCTAssertFalse(response.categorys.isEmpty)
         testExpectation?.fulfill()
     }
 
