@@ -79,6 +79,7 @@ class ListViewController: UIViewController, ListDisplayLogic {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "My Market"
         self.view.backgroundColor = .white
 
         configureCollectionView()

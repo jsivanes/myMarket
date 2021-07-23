@@ -11,6 +11,12 @@
 		3E96A9F326A6FFE800832A0F /* ListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96A9F226A6FFE800832A0F /* ListItemCell.swift */; };
 		3E96A9F526A707E000832A0F /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96A9F426A707E000832A0F /* UIImageView.swift */; };
 		3E96A9F726A7096B00832A0F /* ListViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96A9F626A7096B00832A0F /* ListViewController+Delegate.swift */; };
+		3ED742CF26AA5297000F13A9 /* DetailsPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED742C926AA5297000F13A9 /* DetailsPresenter.swift */; };
+		3ED742D026AA5297000F13A9 /* DetailsWorker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED742CA26AA5297000F13A9 /* DetailsWorker.swift */; };
+		3ED742D126AA5297000F13A9 /* DetailsRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED742CB26AA5297000F13A9 /* DetailsRouter.swift */; };
+		3ED742D226AA5297000F13A9 /* DetailsModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED742CC26AA5297000F13A9 /* DetailsModels.swift */; };
+		3ED742D326AA5297000F13A9 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED742CD26AA5297000F13A9 /* DetailsViewController.swift */; };
+		3ED742D426AA5297000F13A9 /* DetailsInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3ED742CE26AA5297000F13A9 /* DetailsInteractor.swift */; };
 		3EFE690226A41CDF006523A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFE690126A41CDF006523A4 /* AppDelegate.swift */; };
 		3EFE690426A41CDF006523A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFE690326A41CDF006523A4 /* SceneDelegate.swift */; };
 		3EFE690B26A41CE1006523A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EFE690A26A41CE1006523A4 /* Assets.xcassets */; };
@@ -47,6 +53,12 @@
 		3E96A9F226A6FFE800832A0F /* ListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemCell.swift; sourceTree = "<group>"; };
 		3E96A9F426A707E000832A0F /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
 		3E96A9F626A7096B00832A0F /* ListViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+Delegate.swift"; sourceTree = "<group>"; };
+		3ED742C926AA5297000F13A9 /* DetailsPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsPresenter.swift; sourceTree = "<group>"; };
+		3ED742CA26AA5297000F13A9 /* DetailsWorker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsWorker.swift; sourceTree = "<group>"; };
+		3ED742CB26AA5297000F13A9 /* DetailsRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsRouter.swift; sourceTree = "<group>"; };
+		3ED742CC26AA5297000F13A9 /* DetailsModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsModels.swift; sourceTree = "<group>"; };
+		3ED742CD26AA5297000F13A9 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		3ED742CE26AA5297000F13A9 /* DetailsInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsInteractor.swift; sourceTree = "<group>"; };
 		3EFE68FE26A41CDF006523A4 /* MyMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EFE690126A41CDF006523A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EFE690326A41CDF006523A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -109,6 +121,19 @@
 			path = Cells;
 			sourceTree = "<group>";
 		};
+		3ED742C826AA527F000F13A9 /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				3ED742C926AA5297000F13A9 /* DetailsPresenter.swift */,
+				3ED742CA26AA5297000F13A9 /* DetailsWorker.swift */,
+				3ED742CB26AA5297000F13A9 /* DetailsRouter.swift */,
+				3ED742CC26AA5297000F13A9 /* DetailsModels.swift */,
+				3ED742CD26AA5297000F13A9 /* DetailsViewController.swift */,
+				3ED742CE26AA5297000F13A9 /* DetailsInteractor.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		3EFE68F526A41CDF006523A4 = {
 			isa = PBXGroup;
 			children = (
@@ -134,6 +159,7 @@
 			children = (
 				3E2AA13A26A5D2E000CE4999 /* Extensions */,
 				3EFE693126A41E28006523A4 /* List */,
+				3ED742C826AA527F000F13A9 /* Details */,
 				3EFE690126A41CDF006523A4 /* AppDelegate.swift */,
 				3EFE690326A41CDF006523A4 /* SceneDelegate.swift */,
 				3EFE690A26A41CE1006523A4 /* Assets.xcassets */,
@@ -306,16 +332,22 @@
 			buildActionMask = 2147483647;
 			files = (
 				3EFE693A26A41E3F006523A4 /* ListRouter.swift in Sources */,
+				3ED742D426AA5297000F13A9 /* DetailsInteractor.swift in Sources */,
 				3EFE690226A41CDF006523A4 /* AppDelegate.swift in Sources */,
 				3EFE693D26A41E3F006523A4 /* ListInteractor.swift in Sources */,
 				3E96A9F726A7096B00832A0F /* ListViewController+Delegate.swift in Sources */,
+				3ED742D026AA5297000F13A9 /* DetailsWorker.swift in Sources */,
 				3EFE693926A41E3F006523A4 /* ListWorker.swift in Sources */,
 				3E96A9F326A6FFE800832A0F /* ListItemCell.swift in Sources */,
 				3EFE693826A41E3F006523A4 /* ListPresenter.swift in Sources */,
+				3ED742D226AA5297000F13A9 /* DetailsModels.swift in Sources */,
+				3ED742D326AA5297000F13A9 /* DetailsViewController.swift in Sources */,
 				3E96A9F526A707E000832A0F /* UIImageView.swift in Sources */,
 				3E2AA13C26A5D2F800CE4999 /* URLSession+Extension.swift in Sources */,
+				3ED742CF26AA5297000F13A9 /* DetailsPresenter.swift in Sources */,
 				3EFE693B26A41E3F006523A4 /* ListModels.swift in Sources */,
 				3EFE693C26A41E3F006523A4 /* ListViewController.swift in Sources */,
+				3ED742D126AA5297000F13A9 /* DetailsRouter.swift in Sources */,
 				3EFE690426A41CDF006523A4 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
