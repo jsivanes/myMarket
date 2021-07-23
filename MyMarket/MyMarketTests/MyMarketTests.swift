@@ -10,24 +10,32 @@ import XCTest
 
 class MyMarketTests: XCTestCase {
 
-    override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
-    }
+    func testFetchListItems() throws {
+        let testExpectation = expectation(description: "should fetch list items ")
 
-    override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-    }
+        let interator = ListInteractor()
+        let presenter = ListPresenterSpy()
+        presenter.testExpectation = testExpectation
+        interator.presenter = presenter
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
+        let request = List.Request(url: "https://raw.githubusercontent.com/leboncoin/paperclip/master/listing.json")
+        interator.fetchListItems(request)
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+        waitForExpectations(timeout: 30) { error in
+            if let err = error {
+                print(err)
+            }
         }
+    }
+
+}
+
+class ListPresenterSpy: ListPresentationLogic {
+    var testExpectation: XCTestExpectation?
+
+    func presentItems(_ response: List.Response) {
+        XCTAssertFalse(response.items.isEmpty)
+        testExpectation?.fulfill()
     }
 
 }

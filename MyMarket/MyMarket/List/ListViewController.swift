@@ -9,12 +9,16 @@
 import UIKit
 
 protocol ListDisplayLogic: AnyObject {
-    func displaySomething(viewModel: List.Something.ViewModel)
+    func displayItems(_ viewModel: List.ViewModel)
 }
 
 class ListViewController: UIViewController, ListDisplayLogic {
     var interactor: ListBusinessLogic?
     var router: (NSObjectProtocol & ListRoutingLogic & ListDataPassing)?
+
+    var collectionView: UICollectionView! = nil
+
+    var model: List.ViewModel?
 
     // MARK: Object lifecycle
 
@@ -43,6 +47,22 @@ class ListViewController: UIViewController, ListDisplayLogic {
         router.dataStore = interactor
     }
 
+    func configureCollectionView() {
+        collectionView = UICollectionView(frame: .zero, collectionViewLayout: createLayout())
+        collectionView.backgroundColor = .white
+        view.addSubview(collectionView)
+        collectionView.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8),
+            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8),
+            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            ])
+        collectionView.register(ListItemCell.self, forCellWithReuseIdentifier: ListItemCell.reuseIdentifier)
+        collectionView.delegate = self
+        collectionView.dataSource = self
+    }
+
     // MARK: Routing
 
     override func prepare(for segue: UIStoryboardSegue, sender _: Any?) {
@@ -58,20 +78,33 @@ class ListViewController: UIViewController, ListDisplayLogic {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        view.backgroundColor = .black
-        doSomething()
+
+        self.view.backgroundColor = .white
+
+        configureCollectionView()
+        
+        retrieveItems()
     }
 
-    // MARK: Do something
 
-    // @IBOutlet weak var nameTextField: UITextField!
-
-    func doSomething() {
-        let request = List.Something.Request()
-        interactor?.doSomething(request: request)
+    func retrieveItems() {
+        let request = List.Request(url: "https://raw.githubusercontent.com/leboncoin/paperclip/master/listing.json")
+        interactor?.fetchListItems(request)
     }
 
-    func displaySomething(viewModel _: List.Something.ViewModel) {
-        // nameTextField.text = viewModel.name
+    private func createLayout() -> UICollectionViewFlowLayout {
+        let layout = UICollectionViewFlowLayout()
+        layout.scrollDirection = .vertical
+        layout.itemSize = CGSize(width: (view.bounds.width - 26) / 2, height: 250)
+        layout.minimumInteritemSpacing = 8
+        layout.minimumLineSpacing = 16
+        return layout
+    }
+
+    // MARK: Display logic
+
+    func displayItems(_ viewModel: List.ViewModel) {
+        model = viewModel
+        collectionView.reloadData()
     }
 }

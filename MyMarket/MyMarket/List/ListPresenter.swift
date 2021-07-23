@@ -9,7 +9,7 @@
 import UIKit
 
 protocol ListPresentationLogic {
-    func presentSomething(response: List.Something.Response)
+    func presentItems(_ response: List.Response)
 }
 
 class ListPresenter: ListPresentationLogic {
@@ -17,8 +17,17 @@ class ListPresenter: ListPresentationLogic {
 
     // MARK: Do something
 
-    func presentSomething(response _: List.Something.Response) {
-        let viewModel = List.Something.ViewModel()
-        viewController?.displaySomething(viewModel: viewModel)
+    func presentItems(_ response: List.Response) {
+        let urgentItems = response.items.filter({ $0.isUrgent })
+            .sorted(by: { $0.creationDate > $1.creationDate })
+            .map({ List.ViewItem(image: $0.imagesURL.small, title: $0.title, category: "test", price: $0.price, isUrgent: $0.isUrgent)})
+        let regularItems = response.items.filter({ !$0.isUrgent })
+            .sorted(by: { $0.creationDate > $1.creationDate })
+            .map({ List.ViewItem(image: $0.imagesURL.small, title: $0.title, category: "test", price: $0.price, isUrgent: $0.isUrgent)})
+
+        let orderedList = urgentItems + regularItems
+
+        let viewModel = List.ViewModel(items: orderedList)
+        viewController?.displayItems(viewModel)
     }
 }

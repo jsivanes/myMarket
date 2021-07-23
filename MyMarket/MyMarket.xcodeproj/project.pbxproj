@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3E2AA13C26A5D2F800CE4999 /* URLSession+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E2AA13B26A5D2F800CE4999 /* URLSession+Extension.swift */; };
+		3E96A9F326A6FFE800832A0F /* ListItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96A9F226A6FFE800832A0F /* ListItemCell.swift */; };
+		3E96A9F526A707E000832A0F /* UIImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96A9F426A707E000832A0F /* UIImageView.swift */; };
+		3E96A9F726A7096B00832A0F /* ListViewController+Delegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3E96A9F626A7096B00832A0F /* ListViewController+Delegate.swift */; };
 		3EFE690226A41CDF006523A4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFE690126A41CDF006523A4 /* AppDelegate.swift */; };
 		3EFE690426A41CDF006523A4 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EFE690326A41CDF006523A4 /* SceneDelegate.swift */; };
 		3EFE690B26A41CE1006523A4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3EFE690A26A41CE1006523A4 /* Assets.xcassets */; };
@@ -39,6 +43,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3E2AA13B26A5D2F800CE4999 /* URLSession+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLSession+Extension.swift"; sourceTree = "<group>"; };
+		3E96A9F226A6FFE800832A0F /* ListItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItemCell.swift; sourceTree = "<group>"; };
+		3E96A9F426A707E000832A0F /* UIImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIImageView.swift; sourceTree = "<group>"; };
+		3E96A9F626A7096B00832A0F /* ListViewController+Delegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ListViewController+Delegate.swift"; sourceTree = "<group>"; };
 		3EFE68FE26A41CDF006523A4 /* MyMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EFE690126A41CDF006523A4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3EFE690326A41CDF006523A4 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -84,6 +92,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3E2AA13A26A5D2E000CE4999 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				3E2AA13B26A5D2F800CE4999 /* URLSession+Extension.swift */,
+				3E96A9F426A707E000832A0F /* UIImageView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		3E96A9F126A6FFCF00832A0F /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				3E96A9F226A6FFE800832A0F /* ListItemCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 		3EFE68F526A41CDF006523A4 = {
 			isa = PBXGroup;
 			children = (
@@ -107,6 +132,7 @@
 		3EFE690026A41CDF006523A4 /* MyMarket */ = {
 			isa = PBXGroup;
 			children = (
+				3E2AA13A26A5D2E000CE4999 /* Extensions */,
 				3EFE693126A41E28006523A4 /* List */,
 				3EFE690126A41CDF006523A4 /* AppDelegate.swift */,
 				3EFE690326A41CDF006523A4 /* SceneDelegate.swift */,
@@ -138,11 +164,13 @@
 		3EFE693126A41E28006523A4 /* List */ = {
 			isa = PBXGroup;
 			children = (
+				3E96A9F126A6FFCF00832A0F /* Cells */,
 				3EFE693226A41E3F006523A4 /* ListPresenter.swift */,
 				3EFE693326A41E3F006523A4 /* ListWorker.swift */,
 				3EFE693426A41E3F006523A4 /* ListRouter.swift */,
 				3EFE693526A41E3F006523A4 /* ListModels.swift */,
 				3EFE693626A41E3F006523A4 /* ListViewController.swift */,
+				3E96A9F626A7096B00832A0F /* ListViewController+Delegate.swift */,
 				3EFE693726A41E3F006523A4 /* ListInteractor.swift */,
 			);
 			path = List;
@@ -280,8 +308,12 @@
 				3EFE693A26A41E3F006523A4 /* ListRouter.swift in Sources */,
 				3EFE690226A41CDF006523A4 /* AppDelegate.swift in Sources */,
 				3EFE693D26A41E3F006523A4 /* ListInteractor.swift in Sources */,
+				3E96A9F726A7096B00832A0F /* ListViewController+Delegate.swift in Sources */,
 				3EFE693926A41E3F006523A4 /* ListWorker.swift in Sources */,
+				3E96A9F326A6FFE800832A0F /* ListItemCell.swift in Sources */,
 				3EFE693826A41E3F006523A4 /* ListPresenter.swift in Sources */,
+				3E96A9F526A707E000832A0F /* UIImageView.swift in Sources */,
+				3E2AA13C26A5D2F800CE4999 /* URLSession+Extension.swift in Sources */,
 				3EFE693B26A41E3F006523A4 /* ListModels.swift in Sources */,
 				3EFE693C26A41E3F006523A4 /* ListViewController.swift in Sources */,
 				3EFE690426A41CDF006523A4 /* SceneDelegate.swift in Sources */,
@@ -382,7 +414,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -437,7 +469,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -462,7 +494,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sivanesan.MyMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -481,7 +513,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = sivanesan.MyMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

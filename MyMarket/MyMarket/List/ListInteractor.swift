@@ -6,28 +6,36 @@
 //  Copyright (c) 2021 ___ORGANIZATIONNAME___. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 protocol ListBusinessLogic {
-    func doSomething(request: List.Something.Request)
+    func fetchListItems(_ request: List.Request)
 }
 
 protocol ListDataStore {
-    // var name: String { get set }
+    var items: [List.Item]? { get set }
 }
 
 class ListInteractor: ListBusinessLogic, ListDataStore {
     var presenter: ListPresentationLogic?
     var worker: ListWorker?
-    // var name: String = ""
+    var items: [List.Item]?
 
     // MARK: Do something
 
-    func doSomething(request _: List.Something.Request) {
+    func fetchListItems(_ request: List.Request) {
         worker = ListWorker()
-        worker?.doSomeWork()
-
-        let response = List.Something.Response()
-        presenter?.presentSomething(response: response)
+        worker?.fetchListItems(request, completionHandler: {[weak self] items, error in
+            guard let items = items else {
+                if let err = error {
+                    print(err)
+                }
+                return
+            }
+            self?.items = items
+            DispatchQueue.main.async {
+                self?.presenter?.presentItems(List.Response(items: items))
+            }
+        })
     }
 }
